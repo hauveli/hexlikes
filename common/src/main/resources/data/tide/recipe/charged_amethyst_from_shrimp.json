@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tide:crystal_shrimp"
+    },
+    {
+      "item": "tide:crystal_shrimp"
+    },
+    {
+      "item": "tide:crystal_shrimp"
+    },
+    {
+      "item": "tide:crystal_shrimp"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexcasting:charged_amethyst"
+  }
+}
