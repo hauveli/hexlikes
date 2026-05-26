@@ -1,0 +1,8 @@
+{
+  "comparator_output": 6,
+  "description": {
+    "translate": "jukebox_song.hexlikes.returning_to_the_surface"
+  },
+  "length_in_seconds": 123,
+  "sound_event": "hexlikes:music_disc.returning_to_the_surface"
+}

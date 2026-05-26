@@ -1,0 +1,45 @@
+{
+  "name": "hexlikes.book.fishing_patterns.title",
+  "icon": "minecraft:tropical_fish",
+  "category": "hexcasting:patterns",
+  "advancement": "hexcasting:root",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexlikes.book.fishing_patterns.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexlikes:bobber/from_owner",
+      "anchor": "hexlikes:bobber/from_owner",
+      "input": "player",
+      "output": "bobber | null",
+      "text": "hexlikes.book.fishing_patterns.bobber/from_owner"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexlikes:owner/from_bobber",
+      "anchor": "hexlikes:owner/from_bobber",
+      "input": "bobber",
+      "output": "player",
+      "text": "hexlikes.book.fishing_patterns.owner/from_bobber"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexlikes:bobber/from_catch",
+      "anchor": "hexlikes:bobber/from_catch",
+      "input": "bobber",
+      "output": "entity | null",
+      "text": "hexlikes.book.fishing_patterns.bobber/from_catch"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexlikes:catch/from_bobber",
+      "anchor": "hexlikes:catch/from_bobber",
+      "input": "entity",
+      "output": "bobber | null",
+      "text": "hexlikes.book.fishing_patterns.catch/from_bobber"
+    }
+  ]
+}

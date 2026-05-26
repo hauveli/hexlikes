@@ -2,5 +2,17 @@
   "pack": {
     "description": "${mod_name}",
     "pack_format": 8
+  },
+  "filter": {
+    "block": [
+      {
+        "namespace": "tide",
+        "path": "recipe/bobbers/amethyst"
+      },
+      {
+        "namespace": "tide",
+        "path": "recipe/crystal_rod_smithing"
+      }
+    ]
   }
 }

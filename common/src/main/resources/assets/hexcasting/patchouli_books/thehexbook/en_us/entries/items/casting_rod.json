@@ -1,0 +1,18 @@
+{
+  "name": "hexlikes.entry.casting_rod",
+  "category": "hexcasting:items",
+  "icon": "tide:crystal_fishing_rod",
+  "sortnum": 66,
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexlikes.page.casting_rod.1"
+    },
+    {
+      "type": "patchouli:smithing",
+      "recipe": "tide:crystal_rod_smithing",
+      "text": "hexlikes.page.casting_rod.smithing"
+    }
+  ]
+}

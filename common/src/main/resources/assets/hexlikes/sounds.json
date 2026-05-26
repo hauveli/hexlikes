@@ -1,0 +1,10 @@
+{
+  "music_disc.returning_to_the_surface": {
+    "sounds": [
+      {
+        "name": "hexlikes:music/returning_to_the_surface",
+        "stream": true
+      }
+    ]
+  }
+}

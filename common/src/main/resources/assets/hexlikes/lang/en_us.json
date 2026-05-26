@@ -1,0 +1,62 @@
+{
+  "hexlikes.creative_tab.title": "Fishcasting",
+  "item.hexlikes.shepherds_casting_rod": "Shepherd's Casting Rod",
+  "item.hexlikes.blessed_focus_bobber": "Blessed Focus Bobber",
+  "item.hexlikes.loud_fishing_line": "Loud Fishing Line",
+  "item.hexlikes.loud_fishing_line.desc": "Pacifies creepers and phantoms",
+  "item.hexlikes.hookless_fishing_hook": "Hookless Fishing Hook",
+  "item.hexlikes.hookless_fishing_hook.desc": "Prevents entities from getting hooked",
+  "item.hexlikes.unlucky_bait": "Unlucky Bait",
+  "item.hexlikes.unlucky_bait.desc": "Prevents anything from nibbling or biting",
+  "accessory.item.hexlikes.blessed_focus_bobber": "Blessed Bobber",
+  "accessory.item.hexlikes.loud_fishing_line": "Loud Line",
+  "accessory.item.hexlikes.hookless_fishing_hook": "Hookless Hook",
+  "text.hexlikes.rod_tooltip.casting_bonus": "Used as a staff when held in off-hand",
+  "text.hexlikes.rod_tooltip.shepherds_bonus": "Unbreakable",
+  "text.hexlikes.bobber_tooltip.focus_bonus": "Can be written to as a Focus when held or cast",
+  "text.hexlikes.bobber_tooltip.blessed_bonus": "Rarely catches loot from any category",
+  "item.hexlikes.message_in_a_bottle": "Message in a Bottle",
+
+  "item.hexlikes.music_disc_returning_to_the_surface": "Music Disc",
+  "jukebox_song.hexlikes.returning_to_the_surface": "cookies+policy - Returning To The Surface",
+
+  "entity.hexlikes.tacklebox_chair": "Tacklebox Chair",
+  "item.hexlikes.tacklebox_chair": "Tacklebox Chair",
+
+  "entity.hexlikes.cursed": "Cursed",
+  "item.hexlikes.cursed": "Cursed",
+  "journal.description.hexlikes.cursed": "They seem to be possessed of some intelligence, but remain unable to do much with it due to their form. Perhaps if I could free them...",
+
+  "hexcasting.action.hexlikes:bobber/from_owner": "Bobbert's Purification",
+  "hexcasting.action.hexlikes:owner/from_bobber": "Trebbob's Purification",
+  "hexcasting.action.hexlikes:catch/from_bobber": "Babs' Purification",
+  "hexcasting.action.hexlikes:bobber/from_catch": "Bob's Purification",
+  "hexcasting.action.hexlikes:fish/length": "PLACEHOLDER's Purification",
+  "hexcasting.action.hexlikes:fish/rarity": "PLACEHOLDER's Purification",
+  "hexlikes.book.fishing_patterns.title": "Fishing Patterns",
+  "hexlikes.book.fishing_patterns.1": "I came across a soggy book in my travels written by a sage fisher who went by the name $(italic)'Babs'/$. While most of the text consists of the ramblings of a sailor, found within the pages were some mundane patterns for fishing. While I don't see myself fishing one way or the other, I must note these down.",
+  "hexlikes.book.fishing_patterns.bobber/from_owner": "Transforms a player on the stack into the bobber attached to their fishing pole (or $(l:casting/influences)$(thing)Null/$ if there isn't one). Costs about one $(l:items/amethyst)$(item)Amethyst Dust/$.",
+  "hexlikes.book.fishing_patterns.owner/from_bobber": "Transforms a bobber on the stack into the player which cast it. Costs about one $(l:items/amethyst)$(item)Amethyst Shard/$.",
+  "hexlikes.book.fishing_patterns.catch/from_bobber": "Transforms a bobber on the stack into the entity caught on its hook (or $(l:casting/influences)$(thing)Null/$ if there isn't one). Costs about one $(l:items/amethyst)$(item)Amethyst Shard/$.",
+  "hexlikes.book.fishing_patterns.bobber/from_catch": "Transforms an entity on the stack into the bobber it is caught on (or $(l:casting/influences)$(thing)Null/$ if there isn't one). Costs about one $(l:items/amethyst)$(item)Charged Amethyst/$.",
+
+
+  "hexlikes.entry.casting_rod": "Casting Rods",
+  "hexlikes.page.casting_rod.1": "At least something good came from these... $(italic)Fish/$casters. While it is doubtless useful if I would like to fish, a $(thing)Casting Rod/$ is otherwise just like any $(l:items/staff)$(thing)Staff/$ when I hold it in my non-dominant hand.",
+  "hexlikes.page.casting_rod.smithing": "A construction similar to the $(l:items/staff)$(thing)Staves/$.",
+
+  "hexlikes.entry.focus_bobber": "Focus Bobbers",
+  "hexlikes.page.focus_bobber.1": "A truly remarkable invention for such a trite sport. A $(thing)Focus Bobber/$ not only extends my ambit by about an arms length from its origin, it also casts any stored hex within once I pull on it with enough force. This added range does not come for free however, as casting via the Focus Bobber costs $(l:items/amethyst)$(item)Amethyst Dust/$ equal to the square of the length of the vector from myself to the bobber.",
+  "hexlikes.page.focus_bobber.crafting": "A construction similar to the $(l:items/focus)$(thing)Focus/$.",
+
+  "hexlikes.entry.fishy_business": "Fishy Business",
+  "hexlikes.page.fishy_business.1": "Some useful recipes to be certain, should I ever come across a fool foolish enough to part with these without knowing their true value as sources of _Media.",
+  "hexlikes.page.fishy_business.crystal_shrimp.shard": "These shrimp do look quite delicious...",
+  "hexlikes.page.fishy_business.crystal_shrimp.charged": "Especially when they're together like this...",
+  "hexlikes.page.fishy_business.crystalline_carp": "This imposing fish looks like it could channel media without any effort at all, if it had the brains to do so.",
+
+  "hexlikes.entry.fanciful_fishing": "Fanciful Fishing",
+  "hexlikes.page.fanciful_fishing.smithing": "A construction similar to the $(l:greatwork/fanciful_staves)$(thing)Fanciful Staves/$.",
+  "hexlikes.page.fanciful_fishing.1": "Ha! That even that fisher should have gone to such lengths -- just in order to fish without pause... I shudder to imagine what over a week of non-stop fishing would do to my psyche. As different as this $(l:items/casting_rod)$(thing)Casting Rod/$ may look, it offers me no additional benefits in my work aside from its durability, should I wish to cast using a $(l:items/focus_bobber)$(thing)Focus Bobber/$.",
+  "hexlikes.page.fanciful_fishing.2": "Among the notes in the soggy book I've found one interesting passage I could not determine the meaning of. I have transcribed it here, since the original notes are not long for this world.$(br)$(italic)'An unremarkable blob of flesh Cursed to live, intelligent much like an /$$(l:greatwork/quenching_allays)$(thing)Allay/$$(italic), yet undying. I've tried nearly everything I could to carefully desynthesize it with no luck. Should I try evaporating it with a /$$(l:patterns/great_spells/weather_manip#hexcasting:lightning)$(thing)bolt/$$(italic) of /$_Media$(italic) next? No, I must keep it for my big fish collection.'/$ - Babs"
+}

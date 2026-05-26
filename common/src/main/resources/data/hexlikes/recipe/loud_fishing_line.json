@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:strings"
+    },
+    {
+      "item": "hexcasting:amethyst_dust"
+    },
+    {
+      "item": "hexcasting:amethyst_dust"
+    },
+    {
+      "item": "hexcasting:amethyst_dust"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "hexlikes:loud_fishing_line"
+  }
+}

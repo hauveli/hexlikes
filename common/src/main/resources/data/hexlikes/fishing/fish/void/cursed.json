@@ -1,0 +1,41 @@
+{
+  "fish": "hexlikes:cursed",
+  "journal_profile": {
+    "alt_sprite": "hexlikes:textures/item/cursed.png",
+    "alt_sprite_size": 16,
+    "description": "journal.description.hexlikes.cursed",
+    "group": "void",
+    "location": "journal.info.location.void",
+    "rarity": "very_rare"
+  },
+  "display_data": {
+    "entity": "hexlikes:cursed",
+    "nbt": { "Variant": 0 },
+    "shape": "1x1",
+    "pitch": 5,
+    "x": -0.05,
+    "y": -0.15
+  },
+  "conditions": [
+    {
+      "type": "tide:dimension",
+      "dimensions": [
+        "minecraft:overworld"
+      ]
+    },
+    {
+      "type": "tide:fluid",
+      "fluid": "void"
+    }
+  ],
+  "behavior": "plateau",
+  "selection_quality": 0.5,
+  "selection_weight": 4.0,
+  "size": {
+    "record_high_cm": 69.420,
+    "typical_high_cm": 66.6,
+    "typical_low_cm": 56.7
+  },
+  "speed": 0.1,
+  "strength": 6.0
+}

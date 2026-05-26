@@ -1,0 +1,24 @@
+{
+  "name": "hexlikes.entry.fanciful_fishing",
+  "category": "hexcasting:greatwork",
+  "icon": "hexlikes:shepherds_casting_rod",
+  "sortnum": 66,
+  "advancement": "hexcasting:enlightenment",
+  "entry_color": "54398a",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexlikes.page.fanciful_fishing.1"
+    },
+    {
+      "type": "patchouli:smithing",
+      "recipe": "hexlikes:shepherds_rod_smithing",
+      "recipe2": "hexlikes:blessed_bobber_smithing",
+      "text": "hexlikes.page.fanciful_fishing.smithing"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexlikes.page.fanciful_fishing.2"
+    }
+  ]
+}

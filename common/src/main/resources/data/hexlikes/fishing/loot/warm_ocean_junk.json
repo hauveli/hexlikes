@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "tide:dimension",
+      "dimensions": [
+        "minecraft:overworld"
+      ]
+    },
+    {
+      "type": "tide:found_in",
+      "biomes": [
+        "minecraft:warm_ocean"
+      ]
+    },
+    {
+      "type": "tide:fluid",
+      "fluid": "water"
+    },
+    {
+      "type": "tide:above",
+      "y": 40
+    }
+  ],
+  "loot_table": "hexlikes:gameplay/fishing/warm_ocean_junk",
+  "quality": -2.0,
+  "weight": 10.0
+}

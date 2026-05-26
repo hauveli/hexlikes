@@ -1,6 +1,58 @@
 plugins {
     // see https://fabricmc.net/develop/ for new versions
-    id 'fabric-loom' version '1.7-SNAPSHOT' apply false
+    id 'fabric-loom' version '1.13.6' apply false
     // see https://projects.neoforged.net/neoforged/moddevgradle for new versions
-    id 'net.neoforged.moddev' version '0.1.110' apply false
+    id 'net.neoforged.moddev' version '2.0.141' apply false
+
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '2.0.21'
 }
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+
+        maven {
+            url = "https://maven.fabricmc.net/"
+        }
+
+        maven {
+            url = "https://api.modrinth.com/maven"
+        }
+
+        maven {
+            url = "https://maven.neoforged.net/releases"
+        }
+
+        maven {
+            url = "https://maven.thedarkcolour.dev/releases"
+        }
+
+        // pehkui
+        maven { url = "https://jitpack.io" }
+
+        mavenLocal()
+        flatDir {
+            dirs "libs"
+        }
+    }
+}
+
+/*
+project(":fabric") {
+    // from HexMod's build.gradle
+    loom {
+        silentMojangMappingsLicense() // heroes in a half-shell
+    }
+
+    dependencies {
+        minecraft "net.minecraft:minecraft:$rootProject.minecraftVersion"
+        mappings loom.officialMojangMappings()
+    }
+}
+ */

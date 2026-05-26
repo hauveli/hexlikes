@@ -1,0 +1,19 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "hexcasting:scroll"
+    }
+  ],
+  "processingTime": 350,
+  "results": [
+    {
+      "count": 2,
+      "item": "minecraft:paper"
+    },
+    {
+      "chance": 0.75,
+      "item": "hexcasting:amethyst_dust"
+    }
+  ]
+}

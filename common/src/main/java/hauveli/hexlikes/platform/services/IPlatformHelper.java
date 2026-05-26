@@ -1,5 +1,8 @@
 package hauveli.hexlikes.platform.services;
 
+import net.minecraft.core.Holder;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+
 public interface IPlatformHelper {
 
     /**
@@ -32,4 +35,6 @@ public interface IPlatformHelper {
     default String getEnvironmentName() {
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    Holder<Attribute> getHolderForBobberRadius();
 }

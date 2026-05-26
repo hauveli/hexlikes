@@ -4,9 +4,19 @@
   "package": "hauveli.hexlikes.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [],
+  "mixins": [
+    "BobberAmbitPlayerBasedCastEnvMixin",
+    "BobberInWorldCastingEnvironmentMixin",
+    "ContentAccessorBucketItemMixin",
+    "CursedMostlyIndestructibleItemEntityMixin",
+    "CustomBehaviorTideFishingHookMixin",
+    "getDescriptionLinesTideFishingRodItemMixin",
+    "HexyTideyItemsMixin",
+    "ProbabilityBobberTweakTideFishingManagerMixin",
+    "TackleBoxSlurpEntityMixin",
+    "YoinkTooltipRenderTideClientEventHandlerMixin"
+  ],
   "client": [
-    "MixinMinecraft"
   ],
   "server": [],
   "injectors": {

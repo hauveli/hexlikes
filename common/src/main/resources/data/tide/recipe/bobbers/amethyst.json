@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:slime_balls"
+    },
+    {
+      "tag": "c:leathers"
+    },
+    {
+      "tag": "c:dusts/glowstone"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "tide:crystalline_carp"
+    },
+    {
+      "tag": "minecraft:planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tide:amethyst_fishing_bobber"
+  }
+}
