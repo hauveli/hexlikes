@@ -21,4 +21,8 @@ public class HexlikesTags {
             "fishy_music_discs"));
     public static final TagKey<Item> NO_DURABILITY_ENCHANTMENTS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID,
             "no_durability_enchantments"));
+    public static final TagKey<Item> LORE_FRAGMENTS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID,
+            "lore_fragments"));
+    public static final TagKey<Item> UNLUCKY_MULCH = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MOD_ID,
+            "unlucky_mulch"));
 }

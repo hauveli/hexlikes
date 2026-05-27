@@ -1,0 +1,10 @@
+{
+  "name": "hexlikes.entry.lore.notes2",
+  "icon": "hexlikes:fishy_fragment",
+  "category": "hexcasting:lore/fishlore",
+  "advancement": "hexlikes:lore/notes2",
+  "sortnum": 4,
+  "pages": [
+    "hexlikes.page.lore.notes2.1"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "hexlikes.category.fishlore",
+  "icon": "hexlikes:message_in_a_bottle",
+  "description": "hexlikes.category.fishlore.desc",
+  "parent": "hexcasting:lore",
+  "sortnum": 999
+}

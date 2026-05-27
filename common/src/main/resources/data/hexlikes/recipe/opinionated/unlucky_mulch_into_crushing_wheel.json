@@ -2,7 +2,7 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "hexcasting:scroll"
+      "tag": "hexlikes:unlucky_mulch"
     }
   ],
   "processingTime": 350,

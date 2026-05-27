@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "ingredient": {
-    "item": "hexcasting:lore_fragment"
+    "tag": "hexlikes:unlucky_mulch"
   },
   "result": {
     "id": "hexcasting:amethyst_dust"

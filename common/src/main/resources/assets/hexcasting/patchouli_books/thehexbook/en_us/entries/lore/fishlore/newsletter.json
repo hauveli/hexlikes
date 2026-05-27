@@ -1,0 +1,31 @@
+{
+  "name": "hexlikes.entry.lore.newsletter",
+  "icon": "hexlikes:fishy_fragment",
+  "category": "hexcasting:lore/fishlore",
+  "advancement": "hexlikes:lore/newsletter",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:image",
+      "title": "hexlikes.page.lore.newsletter.title",
+      "images": [
+        "hexlikes:textures/lore/newsletter.png"
+      ],
+      "border": true,
+      "text": "hexlikes.page.lore.newsletter.subtitle"
+    },
+    "hexlikes.page.lore.newsletter.1",
+    "hexlikes.page.lore.newsletter.2",
+    "hexlikes.page.lore.newsletter.3",
+    "hexlikes.page.lore.newsletter.4",
+    "hexlikes.page.lore.newsletter.5",
+    "hexlikes.page.lore.newsletter.6",
+    "hexlikes.page.lore.newsletter.7",
+    "hexlikes.page.lore.newsletter.8",
+    "hexlikes.page.lore.newsletter.9",
+    "hexlikes.page.lore.newsletter.10",
+    "hexlikes.page.lore.newsletter.11",
+    "hexlikes.page.lore.newsletter.12",
+    "hexlikes.page.lore.newsletter.13"
+  ]
+}

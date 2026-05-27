@@ -53,7 +53,6 @@ public class HexlikesItemsJ {
     private static final Map<ResourceLocation, Function<Item.Properties, Item>> CACHED =
             new HashMap<>();
 
-
     public static final HexyRodItem SHEPHERDS_CASTING_ROD = new HexyRodItem(3, 0,
             (new Item.Properties())
             .rarity(Rarity.UNCOMMON)
@@ -79,6 +78,13 @@ public class HexlikesItemsJ {
     public static final Item TACKLEBOX_CHAIR = new TackleBoxChairItem(
             (new Item.Properties().stacksTo(1))
     );
+
+    public static final Item GLASS_SHARD = new Item(
+            (new Item.Properties().stacksTo(16))
+    );
+    public static final Item HEXLIKES_LORE_FRAGMENT = new HexlikesLoreFragment(
+            (new Item.Properties().stacksTo(1))
+    );
     // @devs if you're reading this please feel free to add anything from this mod
     static {
         wrap("shepherds_casting_rod", props -> SHEPHERDS_CASTING_ROD); // +1 luck instead of jingle
@@ -91,6 +97,8 @@ public class HexlikesItemsJ {
         wrap("blessed", props -> new Item(props.rarity(Rarity.EPIC))); // Does not exist yet but I'm putting it here anyway
         wrap("message_in_a_bottle", props -> MESSAGE_IN_A_BOTTLE); // Fish that enables hexcasting progression via flay mind
         wrap("tacklebox_chair", props -> TACKLEBOX_CHAIR); // Fish that enables hexcasting progression via flay mind
+        wrap("glass_shard", props -> GLASS_SHARD); // Fish that enables hexcasting progression via flay mind
+        wrap("fishy_fragment", props -> HEXLIKES_LORE_FRAGMENT); // Fish that enables hexcasting progression via flay mind
     }
 
 

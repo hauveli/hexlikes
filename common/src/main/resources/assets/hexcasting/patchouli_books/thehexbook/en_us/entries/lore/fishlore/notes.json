@@ -1,0 +1,20 @@
+{
+  "name": "hexlikes.entry.lore.notes",
+  "icon": "hexlikes:fishy_fragment",
+  "category": "hexcasting:lore/fishlore",
+  "advancement": "hexlikes:lore/notes",
+  "sortnum": 3,
+  "pages": [
+    "hexlikes.page.lore.notes.1",
+    "hexlikes.page.lore.notes.2",
+    "hexlikes.page.lore.notes.3",
+    "hexlikes.page.lore.notes.4",
+    "hexlikes.page.lore.notes.5",
+    "hexlikes.page.lore.notes.6",
+    "hexlikes.page.lore.notes.7",
+    "hexlikes.page.lore.notes.8",
+    "hexlikes.page.lore.notes.9",
+    "hexlikes.page.lore.notes.10",
+    "hexlikes.page.lore.notes.11"
+  ]
+}

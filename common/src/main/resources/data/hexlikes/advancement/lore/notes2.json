@@ -13,11 +13,11 @@
     "frame": "task",
     "hidden": true,
     "icon": {
-      "item": "hexcasting:lore_fragment"
+      "id": "hexcasting:lore_fragment"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.hexlikes:lore/babs1"
+      "translate": "advancement.hexlikes:lore/notes2"
     }
   },
   "requirements": [

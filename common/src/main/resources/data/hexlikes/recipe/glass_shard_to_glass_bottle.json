@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": {
+      "item": "hexlikes:glass_shard"
+    }
+  },
+  "pattern": [
+    "S S",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:glass_bottle"
+  }
+}

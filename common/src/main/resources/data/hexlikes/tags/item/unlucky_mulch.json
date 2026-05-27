@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "hexlikes:fishy_fragment",
+    "hexcasting:lore_fragment",
+    "hexcasting:scroll",
+    "hexcasting:scroll_medium",
+    "hexcasting:scroll_small"
+  ]
+}

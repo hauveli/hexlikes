@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "hexcasting:lore_fragment"
+      "tag": "hexlikes:lore_fragments"
     }
   ],
   "result": {

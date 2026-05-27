@@ -22,7 +22,8 @@
     {
       "type": "patchouli:crafting",
       "recipe": "hexlikes:charged_amethyst_from_carp",
-      "text": "hexlikes.page.fishy_business.crystalline_carp"
+      "text": "hexlikes.page.fishy_business.crystalline_carp",
+      "anchor": "hexlikes:carp"
     }
   ]
 }

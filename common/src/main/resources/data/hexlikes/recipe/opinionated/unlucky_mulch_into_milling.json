@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "hexcasting:lore_fragment"
+      "tag": "hexlikes:unlucky_mulch"
     }
   ],
   "results": [

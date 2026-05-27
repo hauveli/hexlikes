@@ -4,7 +4,10 @@ package hauveli.hexlikes;
 import at.petrak.hexcasting.common.lib.HexCreativeTabs;
 import at.petrak.hexcasting.common.lib.HexRegistries;
 import at.petrak.hexcasting.forge.cap.HexCapabilities;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.li64.tide.Tide;
+import com.li64.tide.client.TideItemModelProperties;
 import com.li64.tide.registries.TideEntityTypes;
 import com.li64.tide.registries.TideItems;
 import hauveli.hexlikes.common.chair.TackleBoxChairEntity;
@@ -16,9 +19,15 @@ import hauveli.hexlikes.common.CursedEntity;
 import hauveli.hexlikes.common.HexlikesItemsJ;
 import net.minecraft.client.renderer.entity.AxolotlRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -28,8 +37,10 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.*;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -39,6 +50,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 import static hauveli.hexlikes.Constants.MOD_ID;
@@ -115,6 +127,19 @@ public class Hexlikes {
         );
     }
 
+    // from the neoforge documentation, found it after looking at the fabric documentation, god I'm just glad it works now
+    public static void registerItemModelProperties(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            ItemProperties.register(
+                    HexlikesItemsJ.SHEPHERDS_CASTING_ROD,
+                    TideItemModelProperties.CAST_PROPERTY,
+                    (stack, level, player, seed) -> {
+                        return TideItemModelProperties.CAST_FUNCTION.call(stack, level, player, seed);
+                    }
+            );
+        });
+    }
+
     public static void registerCaps(RegisterCapabilitiesEvent event) {
         event.registerEntity(
                 HexCapabilities.Entity.IOTA,
@@ -141,8 +166,10 @@ public class Hexlikes {
                                 output.accept(HexlikesItemsJ.UNLUCKY_BAIT);
                                 output.accept(HexlikesItemsJ.TACKLEBOX_CHAIR);
                                 output.accept(HexlikesItemsJ.MESSAGE_IN_A_BOTTLE);
+                                output.accept(HexlikesItemsJ.GLASS_SHARD);
                                 output.accept(HexlikesItemsJ.CURSED);
                                 output.accept(HexlikesItemsJ.DISC);
+                                output.accept(HexlikesItemsJ.HEXLIKES_LORE_FRAGMENT);
                             })
                             .build()
             );
@@ -178,6 +205,9 @@ public class Hexlikes {
         });
         modBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             registerEntityRenderers(event);
+        });
+        modBus.addListener((FMLClientSetupEvent event) -> {
+            registerItemModelProperties(event);
         });
         // Use NeoForge to bootstrap the Common mod.
         Constants.LOG.info("Hello world!");

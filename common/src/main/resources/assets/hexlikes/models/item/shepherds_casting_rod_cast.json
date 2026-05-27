@@ -1,4 +1,4 @@
-  {
+{
   "parent": "item/handheld_rod",
   "textures": {
     "layer0": "hexlikes:item/shepherds_casting_rod_cast"
