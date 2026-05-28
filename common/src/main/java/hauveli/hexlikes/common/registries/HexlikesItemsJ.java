@@ -1,18 +1,17 @@
-package hauveli.hexlikes.common;
+package hauveli.hexlikes.common.registries;
 
 import at.petrak.hexcasting.api.addldata.ItemDelegatingEntityIotaHolder;
 import com.li64.tide.data.rods.CustomRodManager;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.registries.items.FishingHookItem;
+import hauveli.hexlikes.common.HexlikesLoreFragment;
 import hauveli.hexlikes.common.paraphernalia.LoudFishingLineItem;
 import hauveli.hexlikes.common.chair.TackleBoxChairItem;
 import hauveli.hexlikes.common.gacha.GachaBottleItem;
 import hauveli.hexlikes.common.paraphernalia.HexyRodItem;
 import hauveli.hexlikes.common.paraphernalia.TideyFocusItem;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 
 import java.util.HashMap;
@@ -83,7 +82,7 @@ public class HexlikesItemsJ {
             (new Item.Properties().stacksTo(16))
     );
     public static final Item HEXLIKES_LORE_FRAGMENT = new HexlikesLoreFragment(
-            (new Item.Properties().stacksTo(1))
+            (new Item.Properties().stacksTo(1).rarity(Rarity.RARE))
     );
     // @devs if you're reading this please feel free to add anything from this mod
     static {
@@ -93,12 +92,12 @@ public class HexlikesItemsJ {
         wrap("loud_fishing_line", props -> LOUD_FISHING_LINE); // Prevents creepers from approaching, and plays random jingle sounds
         wrap("hookless_fishing_hook", props -> FISHLESS_FISHING_HOOK); // Passes through entities when cast, useful if you have an entity you can't move in the way of fishing.
         wrap("music_disc_returning_to_the_surface", props -> DISC); // Prevents hostile mobs from approaching when bobber is in water
-        wrap("cursed", props -> CURSED); // Fish that enables hexcasting progression via flay mind
+        wrap("cursed", props -> CURSED); // Fish that enables hexcasting progression via flay mind, I only half implemented this. It is an axolotl at the moment but it has the basic features needed to function for progression.
         wrap("blessed", props -> new Item(props.rarity(Rarity.EPIC))); // Does not exist yet but I'm putting it here anyway
-        wrap("message_in_a_bottle", props -> MESSAGE_IN_A_BOTTLE); // Fish that enables hexcasting progression via flay mind
-        wrap("tacklebox_chair", props -> TACKLEBOX_CHAIR); // Fish that enables hexcasting progression via flay mind
-        wrap("glass_shard", props -> GLASS_SHARD); // Fish that enables hexcasting progression via flay mind
-        wrap("fishy_fragment", props -> HEXLIKES_LORE_FRAGMENT); // Fish that enables hexcasting progression via flay mind
+        wrap("message_in_a_bottle", props -> MESSAGE_IN_A_BOTTLE); // very rare loot from warm ocean that can help with hexcasting progression. Likely more time-consuming than regular progression.
+        wrap("tacklebox_chair", props -> TACKLEBOX_CHAIR); // awesome chair/boat that I fish on
+        wrap("glass_shard", props -> GLASS_SHARD); // result of throwing bottle
+        wrap("fishy_fragment", props -> HEXLIKES_LORE_FRAGMENT); // lore specific to this addon
     }
 
 

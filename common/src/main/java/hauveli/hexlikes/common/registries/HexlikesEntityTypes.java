@@ -1,5 +1,6 @@
-package hauveli.hexlikes.common;
+package hauveli.hexlikes.common.registries;
 
+import hauveli.hexlikes.common.CursedEntity;
 import hauveli.hexlikes.common.chair.TackleBoxChairEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;

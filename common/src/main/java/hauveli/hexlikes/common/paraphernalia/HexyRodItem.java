@@ -7,9 +7,6 @@ package hauveli.hexlikes.common.paraphernalia;
 
 import at.petrak.hexcasting.api.HexAPI;
 import at.petrak.hexcasting.api.casting.ParticleSpray;
-import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
-import at.petrak.hexcasting.api.casting.eval.env.PackagedItemCastEnv;
-import at.petrak.hexcasting.api.casting.eval.env.StaffCastEnv;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingVM;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.PatternIota;
@@ -20,15 +17,14 @@ import at.petrak.hexcasting.common.msgs.MsgClearSpiralPatternsS2C;
 import at.petrak.hexcasting.common.msgs.MsgNewSpiralPatternsS2C;
 import at.petrak.hexcasting.common.msgs.MsgOpenSpellGuiS2C;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
-import com.google.common.collect.ImmutableList;
-import com.li64.tide.TideConfig;
-import com.li64.tide.data.minigame.FishCatchMinigame;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.registries.items.TideFishingRodItem;
+import hauveli.hexlikes.common.HexlikesConfig;
 import hauveli.hexlikes.hexcasting.BobberBasedCastEnv;
+import hauveli.hexlikes.mixin.WindUpCastBarOverlayMixin;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -36,6 +32,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stat;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -49,25 +46,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-
-/*
-    TODO:
-    pattern to get hoook:
-    TideFishingHook activeHook = HookAccessor.getHook(player);
-
-    once the spell is primed (active)
-    the grid should close and using the rod (glowy?) should make player begin casting their bobber
-    when reeled, hex stored in bobber, or if no hex is stored in bobber but a hex can be cast with hermes on the player's grid, cast
-    the primed spell is cast using whatever resources are available as usual from the player
-    ambit of caster should extend to any amethyst bobbers currently active
-
-    TWO CASES:
-    bobber is on water:
-
-
-    bobber
-
- */
 
 public class HexyRodItem extends TideFishingRodItem {
     // I don't know what this is for but just in case, I'm including it.
@@ -101,6 +79,7 @@ public class HexyRodItem extends TideFishingRodItem {
                 if (bobberItemStack != null && bobberItemStack.getItem() instanceof TideyFocusItem) {
                     // NOOOOOO BOOOOOBBEEEERTTTTT
                     //executeBobber(level, player, player.getUsedItemHand(), bobberItemStack, bobberPos);
+                    // This was moved to a different method
                 }
 
                 int durabilityLoss = activeHook.retrieve(rod, (ServerLevel) level, player);
@@ -185,24 +164,78 @@ public class HexyRodItem extends TideFishingRodItem {
         return InteractionResultHolder.success(stack);
     }
 
-    // if I want it to be configurable, this is where
-    @Override
-    public void releaseUsing(@NotNull ItemStack rod, @NotNull Level level, @NotNull LivingEntity user, int charge) {
-        super.releaseUsing(rod, level, user, charge);
+    private void playNoise(Player player) {
+        //Minecraft.getInstance().getSoundManager().play(new ElytraOnPlayerSoundInstance((LocalPlayer) player));
+        player.playSound(HexSounds.CASTING_AMBIANCE, 1.0f, 1.0f);
+    }
+
+    private void stopNoise() {
+        Minecraft.getInstance().getSoundManager().stop(HexSounds.CASTING_AMBIANCE.getLocation(), null);
     }
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        // if mainhand, we /cast/, if offhand, we *cast*
-        if (hand == InteractionHand.MAIN_HAND) {
+        // if bobber is already cast, we have to be able to pull it back in!
+        // at least, I prefer it to behave this way.
+        if (HookAccessor.getHook(player) != null) {
             return super.use(level, player, hand);
-        } else {
+        }
+        if (HexlikesConfig.CONFIG.castingIsMomentary()) {
+            player.startUsingItem(hand);
+            return InteractionResultHolder.pass(player.getItemInHand(hand));
+        } else if (HexlikesConfig.CONFIG.shouldHexOffhand(hand)) { // a little bit silly, but whatever
             return useStaff(level, player, hand);
+        }
+        return super.use(level, player, hand);
+    }
+
+    // https://github.com/Lightning-64/Tide-2/blob/f9fc2d04ae4d544ad134025cebd83c7438f67098/src/main/java/com/li64/tide/registries/items/TideFishingRodItem.java#L368
+    // for some reason, this is called TWICE each tick.
+    // For this reason, ticksHeld needs to be divided by two...
+    @Override
+    public void onUseTick(@NotNull Level level, @NotNull LivingEntity user, @NotNull ItemStack rod, int charge) {
+        super.onUseTick(level, user, rod, charge + HexlikesConfig.CONFIG.getCastingDelay());
+        if (level.isClientSide) {
+            if (HexlikesConfig.CONFIG.shouldHexMomentary(charge, getUseDuration(rod, user))) {
+                playNoise((Player) user);
+                setHexyDischargePercent(
+                        (float) (getUseDuration(rod, user) - charge)
+                        /
+                        HexlikesConfig.CONFIG.getCastingDelay()
+                );
+            } else {
+                stopNoise();
+            }
+        }
+    }
+
+    private static float hexyDischargePercent = 0.0f;
+
+    public static float getHexyDischargePercent() {
+        return hexyDischargePercent;
+    }
+
+    public void setHexyDischargePercent(float percent) {
+        HexyRodItem.hexyDischargePercent = Mth.clamp(percent, 0.0f, 1.0f);
+    }
+
+    @Override
+    public void releaseUsing(@NotNull ItemStack rod, @NotNull Level level, @NotNull LivingEntity user, int charge) {
+        if (HexlikesConfig.CONFIG.shouldHexMomentary(charge, getUseDuration(rod, user))
+                && user instanceof Player player) {
+            useStaff(level, player, player.getUsedItemHand());
+        } else {
+            super.releaseUsing(rod, level, user, charge);
+        }
+        if (level.isClientSide) {
+            stopNoise();
         }
     }
 
     // From hexcasting github repository
     public InteractionResultHolder<ItemStack> useStaff(Level world, Player player, InteractionHand hand) {
+        stopNoise(); // just in case...
+        player.swing(hand, true);
         if (player.getAttributeValue(HexAttributes.FEEBLE_MIND) > 0){
             return InteractionResultHolder.fail(player.getItemInHand(hand));
         }

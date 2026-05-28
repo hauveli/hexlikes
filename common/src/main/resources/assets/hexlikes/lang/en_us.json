@@ -11,7 +11,9 @@
   "accessory.item.hexlikes.blessed_focus_bobber": "Blessed Bobber",
   "accessory.item.hexlikes.loud_fishing_line": "Loud Line",
   "accessory.item.hexlikes.hookless_fishing_hook": "Hookless Hook",
-  "text.hexlikes.rod_tooltip.casting_bonus": "Used as a staff when held in off-hand",
+  "text.hexlikes.rod_tooltip.casting_bonus": "Usable as a staff",
+  "text.hexlikes.rod_tooltip.casting_bonus.momentary": "Acts as a staff when used briefly",
+  "text.hexlikes.rod_tooltip.casting_bonus.offhand": "Acts as a staff when held in off-hand",
   "text.hexlikes.rod_tooltip.shepherds_bonus": "Unbreakable",
   "text.hexlikes.bobber_tooltip.focus_bonus": "Can be written to as a Focus when held or cast",
   "text.hexlikes.bobber_tooltip.blessed_bonus": "Rarely catches loot from any category",
@@ -37,7 +39,7 @@
   "hexcasting.action.hexlikes:fish/length": "PLACEHOLDER's Purification",
   "hexcasting.action.hexlikes:fish/rarity": "PLACEHOLDER's Purification",
   "hexlikes.book.fishing_patterns.title": "Fishing Patterns",
-  "hexlikes.book.fishing_patterns.1": "I came across a soggy book in my travels written by a sage fisher who went by the name $(italic)'Babs'/$. While most of the text consists of the ramblings of a sailor, found within the pages were some mundane patterns for fishing. While I don't see myself fishing one way or the other, I must note these down.",
+  "hexlikes.book.fishing_patterns.1": "I came across a soggy book in my travels written by a sage fisher who went by the name $(italic)'Babs'/$. While most of the text consists of the ramblings of a sailor, found within the pages were some mundane patterns for fishing. While I don't see myself fishing one way or the other, I must note these down. These would come in handy I ever decide to use a $(l:items/casting_rod#hexlikes:landing)$(thing)Casting Rod/$.",
   "hexlikes.book.fishing_patterns.bobber/from_owner": "Transforms a player on the stack into the bobber attached to their fishing pole (or $(l:casting/influences)$(thing)Null/$ if there isn't one). Costs about one $(l:items/amethyst)$(item)Amethyst Dust/$.",
   "hexlikes.book.fishing_patterns.owner/from_bobber": "Transforms a bobber on the stack into the player which cast it. Costs about one $(l:items/amethyst)$(item)Amethyst Shard/$.",
   "hexlikes.book.fishing_patterns.catch/from_bobber": "Transforms a bobber on the stack into the entity caught on its hook (or $(l:casting/influences)$(thing)Null/$ if there isn't one). Costs about one $(l:items/amethyst)$(item)Amethyst Shard/$.",
@@ -45,7 +47,9 @@
 
 
   "hexlikes.entry.casting_rod": "Casting Rods",
-  "hexlikes.page.casting_rod.1": "At least something good came from these... $(italic)Fish/$casters. While it is doubtless useful if I would like to fish, a $(thing)Casting Rod/$ is otherwise just like any $(l:items/staff)$(thing)Staff/$ when I hold it in my non-dominant hand.",
+  "hexlikes.page.casting_rod.1": "At least something good came from these... $(italic)Fish/$casters. While it is doubtless useful if I would like to fish, a $(thing)Casting Rod/$ will serve me as well as any $(l:items/staff)$(thing)Staff/$.",
+  "hexlikes.page.casting_rod.1.momentary": "At least something good came from these... $(italic)Fish/$casters. While it is doubtless useful if I would like to fish, a $(thing)Casting Rod/$ will serve me as well as any $(l:items/staff)$(thing)Staff/$ when swung gently.",
+  "hexlikes.page.casting_rod.1.offhand_only": "At least something good came from these... $(italic)Fish/$casters. While it is doubtless useful if I would like to fish, a $(thing)Casting Rod/$ will serve me as well as any $(l:items/staff)$(thing)Staff/$ when I hold it in my non-dominant hand.",
   "hexlikes.page.casting_rod.smithing": "A construction similar to the $(l:items/staff)$(thing)Staves/$.",
 
   "hexlikes.entry.focus_bobber": "Focus Bobbers",
@@ -60,7 +64,7 @@
 
   "hexlikes.entry.fanciful_fishing": "Fanciful Fishing",
   "hexlikes.page.fanciful_fishing.smithing": "A construction similar to the $(l:greatwork/fanciful_staves)$(thing)Fanciful Staves/$.",
-  "hexlikes.page.fanciful_fishing.1": "Ha! That even that fisher should have gone to such lengths -- just in order to fish without pause... I shudder to imagine what over a week of non-stop fishing would do to my psyche. As different as this $(l:items/casting_rod)$(thing)Casting Rod/$ may look, it offers me no additional benefits in my work aside from its durability, should I wish to cast using a $(l:items/focus_bobber)$(thing)Focus Bobber/$.",
+  "hexlikes.page.fanciful_fishing.1": "Ha! That even that fisher should have gone to such lengths -- just in order to fish without pause... I shudder to imagine what over a week of non-stop fishing would do to my psyche. As different as this $(l:items/casting_rod#hexlikes:landing)$(thing)Casting Rod/$ may look, it offers me no additional benefits in my work aside from its durability, should I wish to cast using a $(l:items/focus_bobber)$(thing)Focus Bobber/$.",
   "hexlikes.page.fanciful_fishing.2": "Among the notes in the soggy book I've found one interesting passage I could not determine the meaning of. I have transcribed it here, since the original notes are not long for this world.$(br)$(italic)'An unremarkable blob of flesh Cursed to live, intelligent much like an /$$(l:greatwork/quenching_allays)$(thing)Allay/$$(italic), yet undying. I've tried nearly everything I could to carefully desynthesize it with no luck. Should I try evaporating it with a /$$(l:patterns/great_spells/weather_manip#hexcasting:lightning)$(thing)bolt/$$(italic) of /$_Media$(italic) next? No, I must keep it for my big fish collection.'/$ - Babs",
 
 
@@ -88,8 +92,8 @@
 
 
   "advancement.hexlikes:lore/notes": "Fishcasting: Notes #1",
-  "hexlikes.entry.lore.notes": "Notes",
-  "hexlikes.page.lore.notes.1":  "Year $(k)6666$(), Day 1.$(br2)I'm going to be entering the competition again this year. It'll start tomorrow. As usual I will be using my trusty wooden fishing rod. The people telling me to upgrade my rod are out of their minds, my rod works perfectly fine. At least only total idiots would accuse somebody without a $(l:items/casting_rod)$(thing)casting rod$() of hexcasting.",
+  "hexlikes.entry.lore.notes": "Notes #1",
+  "hexlikes.page.lore.notes.1":  "Year $(k)6666$(), Day 1.$(br2)I'm going to be entering the competition again this year. It'll start tomorrow. As usual I will be using my trusty wooden fishing rod. The people telling me to upgrade my rod are out of their minds, my rod works perfectly fine. At least only total idiots would accuse somebody without a $(l:items/casting_rod#hexlikes:landing)$(thing)casting rod$() of hexcasting.",
   "hexlikes.page.lore.notes.2":  "Year $(k)6666$(), Day 2.",
   "hexlikes.page.lore.notes.3":  "Year $(k)6666$(), Day 3.",
   "hexlikes.page.lore.notes.4":  "Year $(k)6666$(), Day 4.",
@@ -108,5 +112,5 @@
 
   "advancement.hexlikes:lore/notes2": "Fishcasting: Notes #2",
   "hexlikes.entry.lore.notes2": "Notes #2",
-  "hexlikes.page.lore.notes2.1": "Year $(k)6667$(), Day 90.$(br2)I've moved, I no longer have a partner and I've decided to stop standing around while fishing for once. I think I'll pick up sailing. Maybe I'll even get that $(l:items/casting_rod)$(thing)casting rod$() people had been nagging me about.$(br)If I'm going to be touching any of that stuff, I may as well do so wasted. I've got enough bottles to last me a lifetime, anyway. I'll just chuck the bottles out along with anything else I want to get rid of when I'm done."
+  "hexlikes.page.lore.notes2.1": "Year $(k)6667$(), Day 90.$(br2)I've moved, I no longer have a partner and I've decided to stop standing around while fishing for once. I think I'll pick up sailing. Maybe I'll even get that $(l:items/casting_rod#hexlikes:landing)$(thing)casting rod$() people had been nagging me about.$(br)If I'm going to be touching any of that stuff, I may as well do so wasted. I've got enough bottles to last me a lifetime, anyway. I'll just chuck the bottles out along with anything else I want to get rid of when I'm done."
 }

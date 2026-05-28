@@ -1,7 +1,8 @@
 package hauveli.hexlikes.mixin;
 
 import com.li64.tide.registries.items.TideFishingRodItem;
-import hauveli.hexlikes.common.HexlikesItemsJ;
+import hauveli.hexlikes.common.HexlikesConfig;
+import hauveli.hexlikes.common.registries.HexlikesItemsJ;
 import hauveli.hexlikes.common.paraphernalia.HexyRodItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -31,7 +32,14 @@ public class getDescriptionLinesTideFishingRodItemMixin {
             components.add(Component.translatable("text.hexlikes.rod_tooltip.shepherds_bonus").withStyle(ChatFormatting.GOLD));
         }
         if (stack.getItem() instanceof HexyRodItem) {
-            components.add(Component.translatable("text.hexlikes.rod_tooltip.casting_bonus").withStyle(ChatFormatting.LIGHT_PURPLE));
+            if (HexlikesConfig.CONFIG.castingIsMomentary()) {
+                components.add(Component.translatable("text.hexlikes.rod_tooltip.casting_bonus.momentary").withStyle(ChatFormatting.LIGHT_PURPLE));
+            } else if (HexlikesConfig.CONFIG.castingIsOffhandOnly()) {
+                components.add(Component.translatable("text.hexlikes.rod_tooltip.casting_bonus.offhand").withStyle(ChatFormatting.LIGHT_PURPLE));
+            } else {
+                // fallback just in case?
+                components.add(Component.translatable("text.hexlikes.rod_tooltip.casting_bonus").withStyle(ChatFormatting.LIGHT_PURPLE));
+            }
         }
 
         cir.setReturnValue(List.copyOf(components));

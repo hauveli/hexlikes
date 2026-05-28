@@ -13,10 +13,8 @@ import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Level;
 
-import java.util.Objects;
-
 import static com.li64.tide.data.item.TideItemData.FISH_LENGTH;
-import static hauveli.hexlikes.common.HexlikesItemsJ.DISC;
+import static hauveli.hexlikes.common.registries.HexlikesItemsJ.DISC;
 
 // melted axolotl fish
 public class CursedEntity extends Axolotl {

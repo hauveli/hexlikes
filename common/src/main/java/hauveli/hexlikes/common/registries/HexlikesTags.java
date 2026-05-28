@@ -1,4 +1,4 @@
-package hauveli.hexlikes.common;
+package hauveli.hexlikes.common.registries;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

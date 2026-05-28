@@ -4,16 +4,13 @@ import com.li64.tide.data.fishing.FishingContext;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.registries.items.TideFishingRodItem;
 import com.li64.tide.util.BaitUtils;
-import hauveli.hexlikes.common.HexlikesTags;
+import hauveli.hexlikes.common.registries.HexlikesTags;
 import hauveli.hexlikes.common.paraphernalia.HexyRodItem;
 import hauveli.hexlikes.common.paraphernalia.TideyFocusItem;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -30,15 +27,13 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Random;
 
 import static hauveli.hexlikes.Constants.MOD_ID;
-import static hauveli.hexlikes.common.HexlikesItemsJ.*;
+import static hauveli.hexlikes.common.registries.HexlikesItemsJ.*;
 
 @Mixin(TideFishingHook.class)
 public abstract class CustomBehaviorTideFishingHookMixin {

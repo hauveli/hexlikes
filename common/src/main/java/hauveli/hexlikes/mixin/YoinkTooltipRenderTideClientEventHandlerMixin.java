@@ -2,7 +2,7 @@ package hauveli.hexlikes.mixin;
 
 
 import com.li64.tide.events.TideClientEventHandler;
-import hauveli.hexlikes.common.HexlikesTags;
+import hauveli.hexlikes.common.registries.HexlikesTags;
 import hauveli.hexlikes.common.paraphernalia.TideyFocusItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

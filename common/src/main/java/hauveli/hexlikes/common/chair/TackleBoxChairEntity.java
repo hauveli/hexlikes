@@ -3,38 +3,21 @@ package hauveli.hexlikes.common.chair;
 import com.li64.tide.Tide;
 import com.li64.tide.data.player.TidePlayerData;
 import com.li64.tide.network.messages.OpenJournalMsg;
-import hauveli.hexlikes.common.HexlikesEntityTypes;
-import hauveli.hexlikes.common.HexlikesItemsJ;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.protocol.game.ServerboundPaddleBoatPacket;
+import hauveli.hexlikes.common.registries.HexlikesEntityTypes;
+import hauveli.hexlikes.common.registries.HexlikesItemsJ;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.WaterlilyBlock;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.BooleanOp;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
-import static hauveli.hexlikes.common.HexlikesItemsJ.TACKLEBOX_CHAIR;
 
 // melted axolotl fish
 public class TackleBoxChairEntity extends ChestBoat {

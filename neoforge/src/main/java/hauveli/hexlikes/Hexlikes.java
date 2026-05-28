@@ -1,35 +1,28 @@
 package hauveli.hexlikes;
 
 
-import at.petrak.hexcasting.common.lib.HexCreativeTabs;
 import at.petrak.hexcasting.common.lib.HexRegistries;
 import at.petrak.hexcasting.forge.cap.HexCapabilities;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.li64.tide.Tide;
 import com.li64.tide.client.TideItemModelProperties;
 import com.li64.tide.registries.TideEntityTypes;
+import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.TideItems;
+import hauveli.hexlikes.common.HexlikesConfig;
 import hauveli.hexlikes.common.chair.TackleBoxChairEntity;
 import hauveli.hexlikes.common.chair.TackleBoxChairModel;
 import hauveli.hexlikes.common.chair.TackleBoxChairRenderer;
-import hauveli.hexlikes.common.HexlikesEntityTypes;
+import hauveli.hexlikes.common.registries.HexlikesEntityTypes;
 import hauveli.hexlikes.hexcasting.HexlikesActionsJ;
 import hauveli.hexlikes.common.CursedEntity;
-import hauveli.hexlikes.common.HexlikesItemsJ;
+import hauveli.hexlikes.common.registries.HexlikesItemsJ;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.minecraft.client.renderer.entity.AxolotlRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelLocationUtils;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -37,20 +30,17 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.*;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
 import static hauveli.hexlikes.Constants.MOD_ID;
@@ -157,8 +147,12 @@ public class Hexlikes {
                             .title(Component.translatable("hexlikes.creative_tab.title"))
                             .icon(() -> new ItemStack(HexlikesItemsJ.LOUD_FISHING_LINE))
                             .displayItems((parameters, output) -> {
+                                // Uhh I'm putting these here for convenience
                                 output.accept(TideItems.CRYSTAL_FISHING_ROD);
                                 output.accept(TideItems.AMETHYST_FISHING_BOBBER);
+                                output.accept(TideFish.CRYSTAL_SHRIMP);
+                                output.accept(TideFish.CRYSTALLINE_CARP);
+                                // but I don't actually know if this is sensible
                                 output.accept(HexlikesItemsJ.SHEPHERDS_CASTING_ROD);
                                 output.accept(HexlikesItemsJ.BLESSED_FOCUS_BOBBER);
                                 output.accept(HexlikesItemsJ.LOUD_FISHING_LINE);
@@ -179,6 +173,7 @@ public class Hexlikes {
         // to load your mod. You can access NeoForge and Common code in this
         // project.
 
+        HexlikesConfig.init();
         var modBus = modContainer.getEventBus();
         SOUND_EVENTS.register(modBus);
         ENTITY_TYPES.register(modBus);

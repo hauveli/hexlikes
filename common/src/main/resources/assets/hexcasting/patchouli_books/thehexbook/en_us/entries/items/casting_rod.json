@@ -7,7 +7,15 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "hexlikes.page.casting_rod.1"
+      "text": "hexlikes.page.casting_rod.1",
+      "flag": "!hexlikes:momentary_casting",
+      "anchor": "hexlikes:landing"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexlikes.page.casting_rod.1",
+      "flag": "hexlikes:momentary_casting",
+      "anchor": "hexlikes:landing"
     },
     {
       "type": "patchouli:smithing",

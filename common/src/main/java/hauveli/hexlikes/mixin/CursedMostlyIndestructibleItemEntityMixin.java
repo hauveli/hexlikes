@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import static hauveli.hexlikes.common.HexlikesItemsJ.CURSED;
+import static hauveli.hexlikes.common.registries.HexlikesItemsJ.CURSED;
 
 @Mixin(ItemEntity.class)
 public class CursedMostlyIndestructibleItemEntityMixin {
