@@ -3,11 +3,12 @@ I took a lot of shortcuts to get it done right now (Ack! I couldn't figure out h
 <details>
 
 <summary>Some of the features this addon includes are</summary>
+
 - Crystal Fishing Rod renamed to Crystal Casting Rod and cost changed to Charged Amethyst
 
 - Crystal Casting Rod can open the hexcasting grid
 
-- Amethyst Bobber cost changed to Charged Amethyst
+- Amethyst Bobber cost changed to Crystalline Carp
 
 - Amethyst Bobber now executes stored Hex on reel (so cool...)
 
@@ -30,6 +31,8 @@ I took a lot of shortcuts to get it done right now (Ack! I couldn't figure out h
 - Fish added (half-implemented)
 
 - Another casting rod as an upgrade to the Crystal Casting Rod, without durability
+
+- Various recipe additions and changes, intended to allow for more routes of progression without invalidating the current progression.
 </details>
 
 If communication is needed please contact me via the issues page or via the Hex Casting discord.
