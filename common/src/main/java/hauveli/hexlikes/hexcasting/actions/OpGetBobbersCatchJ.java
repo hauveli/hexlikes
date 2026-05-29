@@ -17,6 +17,7 @@ import com.li64.tide.data.fishing.FishData;
 import com.li64.tide.registries.TideFish;
 import com.li64.tide.registries.entities.fish.TideFishEntity;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
+import hauveli.hexlikes.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -72,8 +73,7 @@ public final class OpGetBobbersCatchJ implements ConstMediaAction {
             int marginOfError = 500;
             Optional<FishData> opData = FishData.get(fishbert.getItem());
             if (fishbert.tickCount == 0
-                    && (CATCH_TIMESTAMP.get(fishbert.getItem()) != null
-                    && Minecraft.getInstance().level.getDayTime() < 500 + CATCH_TIMESTAMP.get(fishbert.getItem()))) {
+                    && fishbert.getTags().containsAll(List.of(Constants.FISHBERT_TAG, hook.getPlayerOwner().getStringUUID()))) {
                 return fishbert;
             }
         }

@@ -25,6 +25,7 @@ import hauveli.hexlikes.hexcasting.BobberBasedCastEnv;
 import hauveli.hexlikes.mixin.WindUpCastBarOverlayMixin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -38,6 +39,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
@@ -219,6 +221,7 @@ public class HexyRodItem extends TideFishingRodItem {
         HexyRodItem.hexyDischargePercent = Mth.clamp(percent, 0.0f, 1.0f);
     }
 
+    // todo: if player just caught a fish, cooldown for 5 ticks. (configurable as well...)
     @Override
     public void releaseUsing(@NotNull ItemStack rod, @NotNull Level level, @NotNull LivingEntity user, int charge) {
         if (HexlikesConfig.CONFIG.shouldHexMomentary(charge, getUseDuration(rod, user))

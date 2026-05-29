@@ -16,6 +16,7 @@ public class HexlikesConfig implements ConfigData {
     public static HexlikesConfig CONFIG;
     private CASTING_TYPE castingType = CASTING_TYPE.MOMENTARY;
     private int castingTicksToCast = 5; // must be greater than or equal to 0
+    private int cooldownAfterFishingMinigame = 5; // must be greater than or equal to 0
 
     public static void init() {
         AutoConfig.register(HexlikesConfig.class, JanksonConfigSerializer::new);
@@ -37,6 +38,14 @@ public class HexlikesConfig implements ConfigData {
 
     private static void configurePatchouliFlag(String name, boolean bool) {
         PatchouliAPI.get().setConfigFlag(MOD_ID + ":" + name, bool);
+    }
+
+    public int getCooldownAfterFishingMinigame() {
+        return cooldownAfterFishingMinigame;
+    }
+
+    public void setCooldownAfterFishingMinigame(int cooldownAfterFishingMinigame) {
+        this.cooldownAfterFishingMinigame = cooldownAfterFishingMinigame;
     }
 
     enum CASTING_TYPE {

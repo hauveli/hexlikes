@@ -8,6 +8,7 @@ import com.li64.tide.data.fishing.FishingContext;
 import com.li64.tide.data.fishing.selector.FishingEntry;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import hauveli.hexlikes.common.registries.HexlikesTags;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
@@ -65,8 +66,9 @@ public class ProbabilityBobberTweakTideFishingManagerMixin {
         if (player == null
                 || !HookAccessor.getHook(player).getBobber().is(HexlikesTags.LUCK_TWEAKING_BOBBERS)
                 || random.nextFloat() < 0.999) {
-            return;
-        }
+            return; // note: this skews the probabilities and the test does not accurately reflect the true probabilities anymore.
+        } // however, the total change should be ~0.1% so I have decied this is "good enough".
+        // and yes, I know that 0.1% is kind of garbage, the main feature of the bobber is that its bell rings when there's a catch (secret bonus feature that I should maybe document...)
 
         CatchResult rolled = allPossibleCatches.get(
                 random.nextInt(0, allPossibleCatches.size()-1)
@@ -87,10 +89,31 @@ public class ProbabilityBobberTweakTideFishingManagerMixin {
         }
 
         Map<FishingEntry, Double> result = cir.getReturnValue();
-        // TODO: get fish total weight, calculate what 0.1% would be, then add that in here
-        // note: I am aware that this will not reflect completely accurate numbers some of the time (how often?) because of math
-        // suggestions for how to fix this are welcome, but because the total difference in shown numbers is 0.1
-        // it's kind of a low priority for me.
-        result.put(fakeFih, 0.01);
+
+        // Weight calculation
+        // simplistic and NOT how I would prefer to do it, but it does the bare minimum.
+        double sum = 0.0;
+        for (double val : result.values()) {
+            sum += val;
+        }
+        /*
+            ex. for myself to reason/remember what I'm doing
+            for P = 10% and W = 350
+            (P * W) / (1 - P)
+         */
+
+        double targetProbability = 1d / 1000d;
+        result.put(fakeFih, simpleSolver(targetProbability, sum));
     }
+
+    // Todo: figure out how to shift the probabilities of the other fish proportionally
+    // Yes that is a negligible difference but it is a difference that needs its own solution
+    // plus it would allow for an accessory which redistributes the odds according to some log function or something
+    // which would be quite cool.
+    // Some way to reject the most recently caught fish would be awesome, too.
+    @Unique
+    private double simpleSolver(double targetProbability, double weightTotal) {
+        return (weightTotal * targetProbability) / (1d-targetProbability);
+    }
+
 }

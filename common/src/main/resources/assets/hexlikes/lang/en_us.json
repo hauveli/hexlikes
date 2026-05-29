@@ -16,6 +16,7 @@
   "text.hexlikes.rod_tooltip.casting_bonus.offhand": "Acts as a staff when held in off-hand",
   "text.hexlikes.rod_tooltip.shepherds_bonus": "Unbreakable",
   "text.hexlikes.bobber_tooltip.focus_bonus": "Can be written to as a Focus when held or cast",
+  "text.hexlikes.bobber_tooltip.sound_bonus": "Plays sound when a fish bites",
   "text.hexlikes.bobber_tooltip.blessed_bonus": "Rarely catches loot from any category",
   "item.hexlikes.message_in_a_bottle": "Message in a Bottle",
 

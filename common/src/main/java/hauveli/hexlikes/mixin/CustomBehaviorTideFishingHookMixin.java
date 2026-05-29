@@ -4,6 +4,9 @@ import com.li64.tide.data.fishing.FishingContext;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.registries.items.TideFishingRodItem;
 import com.li64.tide.util.BaitUtils;
+import com.llamalad7.mixinextras.sugar.Local;
+import hauveli.hexlikes.Constants;
+import hauveli.hexlikes.common.HexlikesConfig;
 import hauveli.hexlikes.common.registries.HexlikesTags;
 import hauveli.hexlikes.common.paraphernalia.HexyRodItem;
 import hauveli.hexlikes.common.paraphernalia.TideyFocusItem;
@@ -11,6 +14,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -54,10 +58,42 @@ public abstract class CustomBehaviorTideFishingHookMixin {
         //);
     }
 
+    retrive "Lcom/li64/tide/registries/entities/misc/fishing/TideFishingHook;retrieve(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/player/Player;)I"
      */
+
+
+    // This mixin is SPECIFICALLY for the hexcasting pattern which obtains the entity hooked to it.
+    // without this, I'd need to do something else to obtain a reference to this mob which would allow
+    // me to be certain that it is the right entity
+    @Inject(
+            method = "retrieve(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/player/Player;)I",
+            at = @At(
+                    value = "FIELD",
+                    target = "Lcom/li64/tide/registries/entities/misc/fishing/TideFishingHook;catchType:Lcom/li64/tide/registries/entities/misc/fishing/TideFishingHook$CatchType;"
+            )
+    )
+    public void tagTheFishButNotCompoundTag(ItemStack rod,
+                                            ServerLevel level,
+                                            Player player,
+                                            CallbackInfoReturnable<Integer> cir,
+                                            @Local(name = "entity") Entity entity) {
+        // "fishingreal" does something which prevents me from obtaining a reference for sure via Tide
+        // I will have to look at implementing a special case for that somewhere, if I intend to make this a proper addon
+        // (which I do, but dang...)
+        if (entity != null) {
+            // not fishingreal
+            entity.addTag(Constants.FISHBERT_TAG); // this tag vanishes as soon as the item is picked up.
+            // todo: it would be nice if the itemEntity were labelled as the owner, or the fish were marked with the fisher's UUID
+            // if it does, please open an issue or let me know.
+            entity.addTag(player.getStringUUID());
+            // This seems to work.
+            // Awesome! Now there is no ambiguity, there's no extra ItemStack data, and there's no extra cost!
+        }
+    }
 
     @Inject(method = "startRetrieving", at = @At("HEAD"))
     public void retrieve(CallbackInfo ci) {
+        // For executing bobbert
         ItemStack bobberItemStack = this.getBobber();
         if (bobberItemStack != null
                 && bobberItemStack.getItem() instanceof TideyFocusItem
@@ -68,6 +104,15 @@ public abstract class CustomBehaviorTideFishingHookMixin {
                     player, player.getUsedItemHand(),
                     bobberItemStack,
                     ((TideFishingHook)(Object)this).position());
+        }
+        // For adding a cooldown to the rod, I would like a less jank way at some point...
+        if (this.getRodItem() instanceof HexyRodItem hexyRodItem) {
+            //hexyRodItem.setTicksSinceFishingMinigame(0);
+            this.getPlayerOwner()
+                    .getCooldowns()
+                    .addCooldown(
+                            this.getRodItem(),
+                            HexlikesConfig.CONFIG.getCooldownAfterFishingMinigame());
         }
     }
 
