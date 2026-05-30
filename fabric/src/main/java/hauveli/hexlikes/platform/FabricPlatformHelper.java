@@ -1,6 +1,6 @@
-package hauveli.hexlikes.platform;
+package hauveli.fishcasting.platform;
 
-import hauveli.hexlikes.platform.services.IPlatformHelper;
+import hauveli.fishcasting.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatformHelper implements IPlatformHelper {

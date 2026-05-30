@@ -85,7 +85,7 @@
       "conditions": {
         "items": [
           {
-            "items": "hexlikes:shepherds_casting_rod"
+            "items": "fishcasting:shepherds_casting_rod"
           }
         ]
       },

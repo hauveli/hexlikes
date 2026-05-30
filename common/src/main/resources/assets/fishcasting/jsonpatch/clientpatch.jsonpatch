@@ -1,0 +1,21 @@
+@version "2";
+@enabled true;
+@target "hexcasting:patchouli_books/thehexbook/en_us/entries/patterns/entities.json";
+arrays.push($pages, {
+      type: "hexcasting:pattern",
+      op_id: "hexcasting:abs",
+      anchor: "hexcasting:abs",
+      input: "entity",
+      output: "number",
+      flag: "&fishcasting:forbidden_patchouli_knowledge,fishcasting:length_purification_only_fish",
+      text: "fishcasting.book.fishing_patterns.fish/length_forbidden"
+});
+arrays.push($pages, {
+      type: "hexcasting:pattern",
+      op_id: "hexcasting:abs",
+      anchor: "hexcasting:abs",
+      input: "entity",
+      output: "number",
+      flag: "&fishcasting:forbidden_patchouli_knowledge,!fishcasting:length_purification_only_fish",
+      text: "fishcasting.book.fishing_patterns.fish/length_all_entities_forbidden"
+});

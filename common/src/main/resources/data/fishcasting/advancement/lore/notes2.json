@@ -1,0 +1,29 @@
+{
+  "parent": "hexcasting:lore",
+  "criteria": {
+    "grant": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "text": ""
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "id": "hexcasting:lore_fragment"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.fishcasting:lore/notes2"
+    }
+  },
+  "requirements": [
+    [
+      "grant"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

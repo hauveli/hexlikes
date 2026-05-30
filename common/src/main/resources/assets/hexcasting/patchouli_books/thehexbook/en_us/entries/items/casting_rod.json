@@ -1,5 +1,5 @@
 {
-  "name": "hexlikes.entry.casting_rod",
+  "name": "fishcasting.entry.casting_rod",
   "category": "hexcasting:items",
   "icon": "tide:crystal_fishing_rod",
   "sortnum": 66,
@@ -7,20 +7,20 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "hexlikes.page.casting_rod.1",
-      "flag": "!hexlikes:momentary_casting",
-      "anchor": "hexlikes:landing"
+      "text": "fishcasting.page.casting_rod.1",
+      "flag": "!fishcasting:momentary_casting",
+      "anchor": "fishcasting:landing"
     },
     {
       "type": "patchouli:text",
-      "text": "hexlikes.page.casting_rod.1",
-      "flag": "hexlikes:momentary_casting",
-      "anchor": "hexlikes:landing"
+      "text": "fishcasting.page.casting_rod.1",
+      "flag": "fishcasting:momentary_casting",
+      "anchor": "fishcasting:landing"
     },
     {
       "type": "patchouli:smithing",
       "recipe": "tide:crystal_rod_smithing",
-      "text": "hexlikes.page.casting_rod.smithing"
+      "text": "fishcasting.page.casting_rod.smithing"
     }
   ]
 }

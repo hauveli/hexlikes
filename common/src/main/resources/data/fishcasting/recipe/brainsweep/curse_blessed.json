@@ -1,0 +1,16 @@
+{
+  "type": "fishcasting:cursed_brainsweep",
+  "_comment": "I decided this was too much effort",
+  "blockIn": {
+    "type": "block",
+    "block": "minecraft:amethyst_block"
+  },
+  "cost": 100000,
+  "entityIn": {
+    "type": "entity_type",
+    "entityType": "fishcasting:cursed"
+  },
+  "result": {
+    "name": "minecraft:budding_amethyst"
+  }
+}

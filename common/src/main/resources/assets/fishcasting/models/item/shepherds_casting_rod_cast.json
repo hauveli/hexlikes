@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": "fishcasting:item/shepherds_casting_rod_cast"
+  }
+}

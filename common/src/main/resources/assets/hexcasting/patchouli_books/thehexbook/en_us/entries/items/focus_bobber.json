@@ -1,5 +1,5 @@
 {
-  "name": "hexlikes.entry.focus_bobber",
+  "name": "fishcasting.entry.focus_bobber",
   "category": "hexcasting:items",
   "icon": "tide:amethyst_fishing_bobber",
   "sortnum": 66,
@@ -7,12 +7,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "hexlikes.page.focus_bobber.1"
+      "text": "fishcasting.page.focus_bobber.1"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "tide:bobbers/amethyst",
-      "text": "hexlikes.page.focus_bobber.crafting"
+      "text": "fishcasting.page.focus_bobber.crafting"
     }
   ]
 }

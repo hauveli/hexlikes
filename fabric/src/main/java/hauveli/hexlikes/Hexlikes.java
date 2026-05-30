@@ -1,8 +1,8 @@
-package hauveli.hexlikes;
+package hauveli.fishcasting;
 
 import net.fabricmc.api.ModInitializer;
 
-public class Hexlikes implements ModInitializer {
+public class Fishcasting implements ModInitializer {
 
     @Override
     public void onInitialize() {

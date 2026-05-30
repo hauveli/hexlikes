@@ -1,5 +1,5 @@
 {
-  "name": "hexlikes.entry.fishy_business",
+  "name": "fishcasting.entry.fishy_business",
   "category": "hexcasting:items",
   "icon": "tide:crystal_shrimp",
   "sortnum": 67,
@@ -7,23 +7,23 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "hexlikes.page.fishy_business.1"
+      "text": "fishcasting.page.fishy_business.1"
     },
     {
       "type": "patchouli:crafting",
       "recipe": "tide:amethyst_from_shrimp",
-      "text": "hexlikes.page.fishy_business.crystal_shrimp.shard"
+      "text": "fishcasting.page.fishy_business.crystal_shrimp.shard"
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "hexlikes:charged_amethyst_from_shrimp",
-      "text": "hexlikes.page.fishy_business.crystal_shrimp.charged"
+      "recipe": "fishcasting:charged_amethyst_from_shrimp",
+      "text": "fishcasting.page.fishy_business.crystal_shrimp.charged"
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "hexlikes:charged_amethyst_from_carp",
-      "text": "hexlikes.page.fishy_business.crystalline_carp",
-      "anchor": "hexlikes:carp"
+      "recipe": "fishcasting:charged_amethyst_from_carp",
+      "text": "fishcasting.page.fishy_business.crystalline_carp",
+      "anchor": "fishcasting:carp"
     }
   ]
 }

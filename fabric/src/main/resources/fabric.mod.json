@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "hauveli.hexlikes.Hexlikes"
+      "hauveli.fishcasting.Fishcasting"
     ]
   },
   "mixins": [

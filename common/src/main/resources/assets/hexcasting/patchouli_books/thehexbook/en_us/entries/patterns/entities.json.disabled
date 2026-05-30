@@ -1,0 +1,28 @@
+{
+  "name": "hexcasting.entry.entities",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:pig_spawn_egg",
+  "sortnum": 6,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:abs",
+      "anchor": "hexcasting:abs",
+      "input": "entity",
+      "output": "number",
+      "flag": "fishcasting:length_purification_only_fish",
+      "text": "fishcasting.book.fishing_patterns.fish/length_all_entities"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:abs",
+      "anchor": "hexcasting:abs",
+      "input": "entity",
+      "output": "number",
+      "flag": "!fishcasting:length_purification_only_fish",
+      "text": "fishcasting.book.fishing_patterns.fish/length"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
-  "name": "hexlikes.entry.lore.newsletter2",
-  "icon": "hexlikes:fishy_fragment",
+  "name": "fishcasting.entry.lore.newsletter2",
+  "icon": "fishcasting:fishy_fragment",
   "category": "hexcasting:lore/fishlore",
-  "advancement": "hexlikes:lore/newsletter2",
+  "advancement": "fishcasting:lore/newsletter2",
   "sortnum": 2,
   "pages": [
-    "hexlikes.page.lore.newsletter2.1",
-    "hexlikes.page.lore.newsletter2.2"
+    "fishcasting.page.lore.newsletter2.1",
+    "fishcasting.page.lore.newsletter2.2"
   ]
 }

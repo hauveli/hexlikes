@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "J": {
+      "item": "tide:fishing_journal"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    },
+    "C": {
+      "tag": "minecraft:wool_carpets"
+    },
+    "U": {
+      "tag": "c:buckets"
+    },
+    "I": {
+      "tag": "c:rods"
+    },
+    "F": {
+      "item": "tide:fish_satchel"
+    }
+  },
+  "pattern": [
+    "ICI",
+    "JCF",
+    "UBU"
+  ],
+  "result": {
+    "count": 1,
+    "id": "fishcasting:tacklebox_chair"
+  }
+}
