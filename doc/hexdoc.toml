@@ -1,0 +1,43 @@
+modid = "fishcasting"
+book = "hexcasting:thehexbook"
+default_lang = "en_us"
+default_branch = "main"
+
+resource_dirs = [  # top takes priority
+    # hexdoc-only resources
+    "resources",
+    # resource dirs for Fishcasting
+    "{$_common.src}/main/resources",
+    { path="{$_common.src}/generated/resources", required=false },
+    "{$_fabric.src}/main/resources",
+    { path="{$_fabric.src}/generated/resources", required=false },
+    "{$_forge.src}/main/resources",
+    { path="{$_forge.src}/generated/resources", required=false },
+    # other hexdoc plugins
+    { modid="minecraft" },
+    { modid="hexdoc" },
+]
+export_dir = "src/hexdoc_fishcasting/_export/generated"
+
+[template]
+icon = "icon.png"
+include = [
+    "fishcasting",
+    "hexdoc",
+]
+
+[template.args]
+mod_name = "Fishcasting"
+author = "hauveli"
+show_landing_text = true
+
+# platforms
+
+[_common]
+src = "../common/src"
+
+[_fabric]
+src = "../fabric/src"
+
+[_forge]
+src = "../forge/src"
