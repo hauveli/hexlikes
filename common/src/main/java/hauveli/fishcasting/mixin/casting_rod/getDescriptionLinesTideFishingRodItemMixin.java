@@ -15,6 +15,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static hauveli.fishcasting.Fishcasting.CONFIG;
+
 @Mixin(TideFishingRodItem.class)
 public class getDescriptionLinesTideFishingRodItemMixin {
 
@@ -32,9 +34,9 @@ public class getDescriptionLinesTideFishingRodItemMixin {
             components.add(Component.translatable("text.fishcasting.rod_tooltip.shepherds_bonus").withStyle(ChatFormatting.GOLD));
         }
         if (stack.getItem() instanceof HexyRodItem) {
-            if (FishcastingConfig.CONFIG.castingIsMomentary()) {
+            if (CONFIG.gameplay.castingIsMomentary()) {
                 components.add(Component.translatable("text.fishcasting.rod_tooltip.casting_bonus.momentary").withStyle(ChatFormatting.LIGHT_PURPLE));
-            } else if (FishcastingConfig.CONFIG.castingIsOffhandOnly()) {
+            } else if (CONFIG.gameplay.castingIsOffhandOnly()) {
                 components.add(Component.translatable("text.fishcasting.rod_tooltip.casting_bonus.offhand").withStyle(ChatFormatting.LIGHT_PURPLE));
             } else {
                 // fallback just in case?

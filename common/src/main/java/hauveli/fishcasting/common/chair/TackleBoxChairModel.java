@@ -2,7 +2,7 @@ package hauveli.fishcasting.common.chair;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -23,7 +23,7 @@ public class TackleBoxChairModel<T extends Entity> extends EntityModel<T> {
     }
 
     // So that I can re-remember that this is what the first argument in "model layer location" is meant to be
-    private static final ResourceLocation TEXTURE = Constants.id("textures/entity/tacklebox_chair.png");
+    private static final ResourceLocation TEXTURE = Fishcasting.id("textures/entity/tacklebox_chair.png");
 
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(

@@ -1,36 +1,20 @@
 package hauveli.fishcasting.mixin.casting_rod;
 
-import com.li64.tide.data.fishing.FishingContext;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.registries.items.TideFishingRodItem;
-import com.li64.tide.util.BaitUtils;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import hauveli.fishcasting.common.FishcastingConfig;
 import hauveli.fishcasting.common.paraphernalia.HexyRodItem;
 import hauveli.fishcasting.common.paraphernalia.TideyFocusItem;
-import hauveli.fishcasting.common.registries.FishcastingTags;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static hauveli.fishcasting.Constants.random;
-import static hauveli.fishcasting.common.registries.FishcastingItems.BLESSED_FOCUS_BOBBER;
+import static hauveli.fishcasting.Fishcasting.CONFIG;
 
 @Mixin(TideFishingHook.class)
 public abstract class RodCooldownAndBobberExecutionTideFishingHookMixin {
@@ -66,7 +50,7 @@ public abstract class RodCooldownAndBobberExecutionTideFishingHookMixin {
                     .getCooldowns()
                     .addCooldown(
                             this.getRodItem(),
-                            FishcastingConfig.CONFIG.getCooldownAfterFishingMinigame());
+                            CONFIG.gameplay.getCooldownAfterFishingMinigame());
         }
     }
 }

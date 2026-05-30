@@ -4,7 +4,7 @@ import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import hauveli.fishcasting.hexcasting.actions.*;
 import net.minecraft.resources.ResourceLocation;
 import java.util.HashMap;
@@ -36,7 +36,7 @@ public class FishcastingActions {
 
     private static ActionRegistryEntry wrap(String name, String signature, HexDir dir, Action action) {
         HexPattern pattern = HexPattern.fromAngles(signature, dir);
-        ResourceLocation key = Constants.id(name);
+        ResourceLocation key = Fishcasting.id(name);
         ActionRegistryEntry entry = new ActionRegistryEntry(pattern, action);
         CACHED.put(key, entry); // why won't java let me index normally here CACHED[key] = entry
         return entry;

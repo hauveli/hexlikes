@@ -2,7 +2,7 @@ package hauveli.fishcasting.common;
 
 import at.petrak.hexcasting.common.items.ItemLoreFragment;
 import at.petrak.hexcasting.common.lib.HexSounds;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
@@ -23,10 +23,10 @@ import java.util.List;
 // From hexcasting repo https://github.com/FallingColors/HexMod/blob/main/Common/src/main/java/at/petrak/hexcasting/common/items/ItemLoreFragment.java
 public class FishcastingLoreFragment extends ItemLoreFragment {
     public static final List<ResourceLocation> NAMES = List.of(new ResourceLocation[]{
-            Constants.id("lore/newsletter"),
-            Constants.id("lore/notes"),
-            Constants.id("lore/newsletter2"),
-            Constants.id("lore/notes2")
+            Fishcasting.id("lore/newsletter"),
+            Fishcasting.id("lore/notes"),
+            Fishcasting.id("lore/newsletter2"),
+            Fishcasting.id("lore/notes2")
 
     });
 

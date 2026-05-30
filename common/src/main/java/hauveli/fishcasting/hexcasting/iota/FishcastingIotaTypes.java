@@ -3,7 +3,7 @@ package hauveli.fishcasting.hexcasting.iota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 
@@ -33,7 +33,7 @@ public class FishcastingIotaTypes {
     }
 
     private static <U extends Iota, T extends IotaType<U>> T type(String name, T type) {
-        var old = TYPES.put(Constants.id(name), type);
+        var old = TYPES.put(Fishcasting.id(name), type);
         if (old != null) {
             throw new IllegalArgumentException("Typo? Duplicate id " + name);
         }

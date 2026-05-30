@@ -47,8 +47,8 @@
   "fishcasting.book.fishing_patterns.bobber/from_catch": "Transforms an entity on the stack into the bobber it is caught on (or $(l:casting/influences)$(thing)Null/$ if there isn't one). Costs about one $(l:items/amethyst)$(item)Charged Amethyst/$.",
   "fishcasting.book.fishing_patterns.fish/length": "Measure the length of the fish entity. Returns 0 if the entity could not be measured or was not a fish.",
   "fishcasting.book.fishing_patterns.fish/length_all_entities": "Compute the largest dimension of the entity. For a fish, this returns its $(t:Tide 2 provides fish as items and\nas entities with a length property\nindependent of the entity hitbox size)$(thing)length as measured by a fisher$().",
-  "fishcasting.book.fishing_patterns.fish/length_forbidden": "Measure the length of the fish entity. Returns 0 if the entity could not be measured or was not a fish.$(br2)$(t:This page was added by the mod\nFishcasting. To disable it, please set the\nshowForbiddenPatchouliKnowledge field\nto false in the fishcasting config\nfishcasting.json5)[Fishcasting]$()",
-  "fishcasting.book.fishing_patterns.fish/length_all_entities_forbidden": "Compute the largest dimension of the entity. For a fish, this returns its $(t:Tide 2 provides fish as items and\nas entities with a length property\nindependent of the entity hitbox size)$(thing)length as measured by a fisher$().$(br2)$(t:This page was added by the mod\nFishcasting. To disable it, please set the\nshowForbiddenPatchouliKnowledge field\nto false in the fishcasting config\nfishcasting.json5)[Fishcasting]$()",
+  "fishcasting.book.fishing_patterns.fish/length_forbidden": "Measure the length of the fish entity. Returns 0 if the entity could not be measured or was not a fish.$(br2)$(t:This page was added by the mod\nFishcasting. To disable it, please set the\nshowForbiddenPatchouliKnowledge field\nto false in the fishcasting config\nfishcasting.toml)[Fishcasting]$()",
+  "fishcasting.book.fishing_patterns.fish/length_all_entities_forbidden": "Compute the largest dimension of the entity. For a fish, this returns its $(t:Tide 2 provides fish as items and\nas entities with a length property\nindependent of the entity hitbox size)$(thing)length as measured by a fisher$().$(br2)$(t:This page was added by the mod\nFishcasting. To disable it, please set the\nshowForbiddenPatchouliKnowledge field\nto false in the fishcasting config\nfishcasting.toml)[Fishcasting]$()",
 
   "hexcasting.mishap.bad_item.tide_fishing_hook": "Fishing Hook",
 
@@ -120,5 +120,21 @@
 
   "advancement.fishcasting:lore/notes2": "Fishcasting: Notes #2",
   "fishcasting.entry.lore.notes2": "Notes #2",
-  "fishcasting.page.lore.notes2.1": "Year $(k)6667$(), Day 90.$(br2)I've moved, I no longer have a partner and I've decided to stop standing around while fishing for once. I think I'll pick up sailing. Maybe I'll even get that $(l:items/casting_rod#fishcasting:landing)$(thing)casting rod$() people had been nagging me about.$(br)If I'm going to be touching any of that stuff, I may as well do so wasted. I've got enough bottles to last me a lifetime, anyway. I'll just chuck the bottles out along with anything else I want to get rid of when I'm done."
+  "fishcasting.page.lore.notes2.1": "Year $(k)6667$(), Day 90.$(br2)I've moved, I no longer have a partner and I've decided to stop standing around while fishing for once. I think I'll pick up sailing. Maybe I'll even get that $(l:items/casting_rod#fishcasting:landing)$(thing)casting rod$() people had been nagging me about.$(br)If I'm going to be touching any of that stuff, I may as well do so wasted. I've got enough bottles to last me a lifetime, anyway. I'll just chuck the bottles out along with anything else I want to get rid of when I'm done.",
+
+
+  "_comment_confg": "CONFIGURATION STUFF",
+  "text.autoconfig.fishcasting.title": "Fishcasting Configuration",
+  "text.autoconfig.fishcasting.category.gameplay": "Gameplay",
+  "text.autoconfig.fishcasting.category.client": "Client",
+  "text.autoconfig.fishcasting.option.gameplay.castingTicksToCast": "Casting Rod Hex charge ticks",
+  "text.autoconfig.fishcasting.option.gameplay.castingTicksToCast.@Tooltip": "Specifies number of ticks until the purple is depleted when charging.",
+  "text.autoconfig.fishcasting.option.gameplay.cooldownAfterFishing": "Casting Rod cooldown",
+  "text.autoconfig.fishcasting.option.gameplay.cooldownAfterFishing.@Tooltip": "Specifies number of ticks after reeling in the hook until casting rods are usable again.",
+  "text.autoconfig.fishcasting.option.gameplay.castingType": "Casting Rod cast method",
+  "text.autoconfig.fishcasting.option.gameplay.castingType.@Tooltip": "Specifies whether casts are charged or not.",
+  "text.autoconfig.fishcasting.option.gameplay.lengthPurificationOnlyFish": "Length Purification only applies to fish",
+  "text.autoconfig.fishcasting.option.gameplay.lengthPurificationOnlyFish.@Tooltip": "Specifies if length purification works on all entities",
+  "text.autoconfig.fishcasting.option.client.showForbiddenPatchouliKnowledge": "Show Length Purification in Entity entry of Hex Notebook",
+  "text.autoconfig.fishcasting.option.client.showForbiddenPatchouliKnowledge.@Tooltip": "Not recommended for new players as it will be confusing and not beneficial. Leave this off if you are including it in a modpack. Leaving and rejoining will reflect changes."
 }

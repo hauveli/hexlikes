@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static hauveli.fishcasting.Constants.random;
+import static hauveli.fishcasting.Fishcasting.random;
 
 @Mixin(Creeper.class)
 public abstract class AntiCreeperMixin {

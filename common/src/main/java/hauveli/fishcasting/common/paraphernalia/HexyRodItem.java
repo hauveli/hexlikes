@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static hauveli.fishcasting.Fishcasting.CONFIG;
+
 public class HexyRodItem extends TideFishingRodItem {
     // I don't know what this is for but just in case, I'm including it.
     // 0 = normal. 1 = old. 2 = cherry preview
@@ -179,10 +181,10 @@ public class HexyRodItem extends TideFishingRodItem {
         if (HookAccessor.getHook(player) != null) {
             return super.use(level, player, hand);
         }
-        if (FishcastingConfig.CONFIG.castingIsMomentary()) {
+        if (CONFIG.gameplay.castingIsMomentary()) {
             player.startUsingItem(hand);
             return InteractionResultHolder.pass(player.getItemInHand(hand));
-        } else if (FishcastingConfig.CONFIG.shouldHexOffhand(hand)) { // a little bit silly, but whatever
+        } else if (CONFIG.gameplay.shouldHexOffhand(hand)) { // a little bit silly, but whatever
             return useStaff(level, player, hand);
         }
         return super.use(level, player, hand);
@@ -193,14 +195,13 @@ public class HexyRodItem extends TideFishingRodItem {
     // For this reason, ticksHeld needs to be divided by two...
     @Override
     public void onUseTick(@NotNull Level level, @NotNull LivingEntity user, @NotNull ItemStack rod, int charge) {
-        super.onUseTick(level, user, rod, charge + FishcastingConfig.CONFIG.getCastingDelay());
+        super.onUseTick(level, user, rod, charge + CONFIG.gameplay.getCastingDelay());
         if (level.isClientSide) {
-            if (FishcastingConfig.CONFIG.shouldHexMomentary(charge, getUseDuration(rod, user))) {
+            if (CONFIG.gameplay.shouldHexMomentary(charge, getUseDuration(rod, user))) {
                 playNoise((Player) user);
                 setHexyDischargePercent(
                         (float) (getUseDuration(rod, user) - charge)
-                        /
-                        FishcastingConfig.CONFIG.getCastingDelay()
+                        / CONFIG.gameplay.getCastingDelay()
                 );
             } else {
                 stopNoise();
@@ -221,7 +222,7 @@ public class HexyRodItem extends TideFishingRodItem {
     // todo: if player just caught a fish, cooldown for 5 ticks. (configurable as well...)
     @Override
     public void releaseUsing(@NotNull ItemStack rod, @NotNull Level level, @NotNull LivingEntity user, int charge) {
-        if (FishcastingConfig.CONFIG.shouldHexMomentary(charge, getUseDuration(rod, user))
+        if (CONFIG.gameplay.shouldHexMomentary(charge, getUseDuration(rod, user))
                 && user instanceof Player player) {
             useStaff(level, player, player.getUsedItemHand());
         } else {

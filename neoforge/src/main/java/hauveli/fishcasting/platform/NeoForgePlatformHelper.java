@@ -6,7 +6,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 
-import static hauveli.fishcasting.Fishcasting.BOBBER_RADIUS;
+import static hauveli.fishcasting.NeoforgeEntrypoint.BOBBER_RADIUS;
 
 public class NeoForgePlatformHelper implements IPlatformHelper {
     @Override

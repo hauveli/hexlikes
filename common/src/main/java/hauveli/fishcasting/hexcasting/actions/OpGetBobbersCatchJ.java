@@ -14,7 +14,7 @@ import at.petrak.hexcasting.api.misc.MediaConstants;
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds;
 import com.li64.tide.data.fishing.FishData;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -62,7 +62,7 @@ public final class OpGetBobbersCatchJ implements ConstMediaAction {
             int marginOfError = 500;
             Optional<FishData> opData = FishData.get(fishbert.getItem());
             if (fishbert.tickCount == 0
-                    && fishbert.getTags().containsAll(List.of(Constants.FISHBERT_TAG, hook.getPlayerOwner().getStringUUID()))) {
+                    && fishbert.getTags().containsAll(List.of(Fishcasting.FISHBERT_TAG, hook.getPlayerOwner().getStringUUID()))) {
                 return fishbert;
             }
         }

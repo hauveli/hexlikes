@@ -7,7 +7,7 @@ import at.petrak.hexcasting.api.item.IotaHolderItem;
 import at.petrak.hexcasting.common.items.storage.ItemScroll;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import com.li64.tide.data.loot.LootTableRef;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import hauveli.fishcasting.common.registries.FishcastingItems;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
@@ -91,7 +91,7 @@ public class GachaBottleEntity extends ThrownPotion {
         Entity owner = this.getOwner();
         LootTable lootTable = server
                 .reloadableRegistries()
-                .getLootTable(LOOT_TABLES.get(Constants.random.nextInt(0,LOOT_TABLES.size()-1)));
+                .getLootTable(LOOT_TABLES.get(Fishcasting.random.nextInt(0,LOOT_TABLES.size()-1)));
 
         ServerLevel serverLevel = (ServerLevel) this.level();
         LootParams params = new LootParams.Builder(serverLevel)
@@ -105,7 +105,7 @@ public class GachaBottleEntity extends ThrownPotion {
             if (loot.getItem() instanceof IotaHolderItem iotaHolderItem) {
                 // Dispensing it with a machine will yield non-written-to thoughtknots/scrolls every time
                 if (owner instanceof ServerPlayer serverPlayer) {
-                    if (Constants.random.nextFloat() > 0.075) { // about 92.5% of the time, apply datum
+                    if (Fishcasting.random.nextFloat() > 0.075) { // about 92.5% of the time, apply datum
                         if (loot.getItem() instanceof ItemScroll itemScroll) {
                             itemScroll.writeDatum(
                                     loot, new PatternIota(getRandomPattern())
@@ -132,11 +132,11 @@ public class GachaBottleEntity extends ThrownPotion {
                     -> 10% chance 4 shards
          */
         this.spawnAtLocation(new ItemStack(FishcastingItems.GLASS_SHARD));
-        if (Constants.random.nextFloat() > 0.10) {
+        if (Fishcasting.random.nextFloat() > 0.10) {
             this.spawnAtLocation(new ItemStack(FishcastingItems.GLASS_SHARD));
-            if (Constants.random.nextFloat() > 0.5) {
+            if (Fishcasting.random.nextFloat() > 0.5) {
                 this.spawnAtLocation(new ItemStack(FishcastingItems.GLASS_SHARD));
-                if (Constants.random.nextFloat() > 0.9) {
+                if (Fishcasting.random.nextFloat() > 0.9) {
                     this.spawnAtLocation(new ItemStack(FishcastingItems.GLASS_SHARD));
                 }
             }
@@ -146,7 +146,7 @@ public class GachaBottleEntity extends ThrownPotion {
     public Iota generateRandomIota() {
         //if (level.isClientSide) return new NullIota(); // I don't think this is possible?
         ServerLevel serverLevel  = (ServerLevel) this.level();
-        switch (Constants.random.nextInt(0,8)) {
+        switch (Fishcasting.random.nextInt(0,8)) {
             case 0: {
                 return new Vec3Iota(findNearestTreasure(serverLevel, this.position()));
             }
@@ -158,10 +158,10 @@ public class GachaBottleEntity extends ThrownPotion {
             }
             case 2: {
                 // I think past 53 bits double likely is not prime, I'm setting it to 52 just in case....
-                return new DoubleIota(BigInteger.probablePrime(52, Constants.random).doubleValue());
+                return new DoubleIota(BigInteger.probablePrime(52, Fishcasting.random).doubleValue());
             }
             case 3: {
-                return new BooleanIota(Constants.random.nextBoolean());
+                return new BooleanIota(Fishcasting.random.nextBoolean());
             }
             case 4: {
                 return new GarbageIota();
@@ -183,7 +183,7 @@ public class GachaBottleEntity extends ThrownPotion {
         HexActions.register((entry, id) -> {
             patterns.add(entry.prototype()); // heehee...
         });
-        return patterns.get(Constants.random.nextInt(0, patterns.size()));
+        return patterns.get(Fishcasting.random.nextInt(0, patterns.size()));
     }
 
     public Entity getNearbyMob(
@@ -198,7 +198,7 @@ public class GachaBottleEntity extends ThrownPotion {
         if (nearbyMobs.isEmpty()) {
             return null;
         }
-        return nearbyMobs.get(Constants.random.nextInt(0, nearbyMobs.size()));
+        return nearbyMobs.get(Fishcasting.random.nextInt(0, nearbyMobs.size()));
     }
 
     public static Vec3 findNearestTreasure(ServerLevel level, Vec3 origin) {
@@ -231,12 +231,12 @@ public class GachaBottleEntity extends ThrownPotion {
 
 
     LootTableRef MISC_JUNK_TABLE = LootTableRef.createNew(
-            Constants.id("gameplay/fishing/message_in_a_bottle_junk")
+            Fishcasting.id("gameplay/fishing/message_in_a_bottle_junk")
     );
 
     // I should move this out of here but I'm busy accruing tech debt
     LootTableRef WARM_OCEAN_JUNK = LootTableRef.createNew(
-            Constants.id("gameplay/fishing/warm_ocean_junk")
+            Fishcasting.id("gameplay/fishing/warm_ocean_junk")
     );
 
     List<ResourceKey<LootTable>> LOOT_TABLES = List.of(

@@ -3,7 +3,7 @@ package hauveli.fishcasting.mixin.casting_rod;
 
 import com.li64.tide.client.gui.overlays.CastBarOverlay;
 import com.llamalad7.mixinextras.sugar.Local;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import hauveli.fishcasting.common.paraphernalia.HexyRodItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CastBarOverlay.class)
 public class WindUpCastBarOverlayMixin {
     @Unique
-    private static ResourceLocation BAR_HEXY_TEX = Constants.id("textures/gui/fishing/cast_bar_hexy.png");
+    private static ResourceLocation BAR_HEXY_TEX = Fishcasting.id("textures/gui/fishing/cast_bar_hexy.png");
 
     @Inject(
             method = "render(Lnet/minecraft/client/gui/GuiGraphics;F)V",

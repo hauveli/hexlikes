@@ -5,7 +5,7 @@ import com.li64.tide.data.rods.CustomRodManager;
 import com.li64.tide.registries.entities.misc.fishing.HookAccessor;
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.li64.tide.registries.items.FishingHookItem;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import hauveli.fishcasting.common.FishcastingLoreFragment;
 import hauveli.fishcasting.common.paraphernalia.LoudFishingLineItem;
 import hauveli.fishcasting.common.chair.TackleBoxChairItem;
@@ -114,7 +114,7 @@ public class FishcastingItems {
             String name,
             Function<Item.Properties, Item> factory
     ) {
-        ResourceLocation key = Constants.id(name);
+        ResourceLocation key = Fishcasting.id(name);
 
         CACHED.put(key, factory);
 

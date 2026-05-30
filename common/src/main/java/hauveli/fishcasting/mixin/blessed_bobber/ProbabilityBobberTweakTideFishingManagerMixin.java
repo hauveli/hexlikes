@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static hauveli.fishcasting.Constants.random;
+import static hauveli.fishcasting.Fishcasting.random;
 
 @Mixin(TideFishingManager.class)
 public class ProbabilityBobberTweakTideFishingManagerMixin {

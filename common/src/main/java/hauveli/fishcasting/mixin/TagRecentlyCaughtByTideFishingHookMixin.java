@@ -2,7 +2,7 @@ package hauveli.fishcasting.mixin;
 
 import com.li64.tide.registries.entities.misc.fishing.TideFishingHook;
 import com.llamalad7.mixinextras.sugar.Local;
-import hauveli.fishcasting.Constants;
+import hauveli.fishcasting.Fishcasting;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -42,7 +42,7 @@ public abstract class TagRecentlyCaughtByTideFishingHookMixin {
         // (which I do, but dang...)
         if (entity != null) {
             // not fishingreal
-            entity.addTag(Constants.FISHBERT_TAG); // this tag vanishes as soon as the item is picked up.
+            entity.addTag(Fishcasting.FISHBERT_TAG); // this tag vanishes as soon as the item is picked up.
             // todo: it would be nice if the itemEntity were labelled as the owner, or the fish were marked with the fisher's UUID
             // if it does, please open an issue or let me know.
             entity.addTag(player.getStringUUID());
