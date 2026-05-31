@@ -136,5 +136,5 @@
   "text.autoconfig.fishcasting.option.gameplay.lengthPurificationOnlyFish": "Length Purification only applies to fish",
   "text.autoconfig.fishcasting.option.gameplay.lengthPurificationOnlyFish.@Tooltip": "Specifies if length purification works on all entities",
   "text.autoconfig.fishcasting.option.client.showForbiddenPatchouliKnowledge": "Show Length Purification in Entity entry of Hex Notebook",
-  "text.autoconfig.fishcasting.option.client.showForbiddenPatchouliKnowledge.@Tooltip": "Not recommended for new players as it will be confusing and not beneficial. Leave this off if you are including it in a modpack. Leaving and rejoining will reflect changes."
+  "text.autoconfig.fishcasting.option.client.showForbiddenPatchouliKnowledge.@Tooltip": "Not recommended for new players as it will be confusing and not beneficial. Leave this off if you are including it in a modpack. REQUIRES JSONPATCHER."
 }
