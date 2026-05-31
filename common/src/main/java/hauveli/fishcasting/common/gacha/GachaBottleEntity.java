@@ -106,14 +106,17 @@ public class GachaBottleEntity extends ThrownPotion {
                 // Dispensing it with a machine will yield non-written-to thoughtknots/scrolls every time
                 if (owner instanceof ServerPlayer serverPlayer) {
                     if (Fishcasting.random.nextFloat() > 0.075) { // about 92.5% of the time, apply datum
-                        if (loot.getItem() instanceof ItemScroll itemScroll) {
-                            itemScroll.writeDatum(
-                                    loot, new PatternIota(getRandomPattern())
-                            );
-                        } else {
-                            iotaHolderItem.writeDatum(
-                                    loot, generateRandomIota()
-                            );
+                        var maybeIotaExists = iotaHolderItem.readIota(loot);
+                        if (maybeIotaExists == null || maybeIotaExists.size() == 0) {
+                            if (loot.getItem() instanceof ItemScroll itemScroll) {
+                                itemScroll.writeDatum(
+                                        loot, new PatternIota(getRandomPattern())
+                                );
+                            } else {
+                                iotaHolderItem.writeDatum(
+                                        loot, generateRandomIota()
+                                );
+                            }
                         }
                     }
                 }
