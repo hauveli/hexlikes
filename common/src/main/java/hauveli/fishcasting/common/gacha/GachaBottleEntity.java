@@ -206,7 +206,9 @@ public class GachaBottleEntity extends ThrownPotion {
 
     public static Vec3 findNearestTreasure(ServerLevel level, Vec3 origin) {
         BlockPos start = BlockPos.containing(origin);
-        int radius = 100;
+        // 20 is quite low, but 100 is way too laggy. needs to have a mspt of at most 100 for a single tick.
+        // 100 chunks caused this to take up to 2 seconds on my computer.
+        int radius = 20;
         BlockPos treasurePos = level.findNearestMapStructure(
                 StructureTags.ON_TREASURE_MAPS,
                 start,
